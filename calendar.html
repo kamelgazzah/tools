@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        a {
+            text-decoration: none;
+            color: #000408;
+            /* couleur du lien, à ajuster si besoin */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* si tu veux le souligné au survol */
+        }
+        h1{
+            text-align: center;
+            border: 2px solid #115eac;
+            border-radius: 15px;
+            color: #fbfbfc;
+            padding: 10px;
+            background-color: #6996f7;
+            width: 50%;
+            margin: auto;
+        }
+        h2{
+            text-align: center;
+            border: 2px solid #04488b;
+            border-radius: 15px;
+            color: #fbfbfc;
+            padding: 10px;
+            background-color: #6996f7;
+            width: 50%;
+            margin: auto;
+            
+        }
+        h1,
+        h5,h2 {
+            text-align: center
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #ar,
+        #holiday,
+        #hijriholidays,
+        h3 {
+            text-align: right;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            border: 1px solid #ccc;
+            /* couleur et épaisseur de la bordure */
+            border-radius: 10px;
+            /* coins arrondis */
+        }
+
+        th {
+            background-color: rgb(15, 54, 116);
+            color: white;
+        }
+
+        td {
+            border: 1px solid silver;
+            vertical-align: top;
+            color: rgb(13, 3, 48);
+        }
+
+        th {
+            border: 1px solid silver;
+            vertical-align: top;
+            color: rgb(245, 244, 248);
+        }
+
+        select {
+            width: 100%;
+            font-weight: bold;
+            color: blue;
+        }
+
+        #tcal {
+            font-size: small;
+        }
+    </style>
+    <script type="text/javascript" src="Hijri.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const Days = [
+                "الأحد",
+                "الإثنين",
+                "الثلاثاء",
+                "الأربعاء",
+                "الخميس",
+                "الجمعة",
+                "السبت",
+            ];
+            const Months = [
+                "جانفي",
+                "فيفري",
+                "مارس",
+                "أفريل",
+                "ماي",
+                "جوان",
+                "جويلية",
+                "أوت",
+                "سبتمبر",
+                "أكتوبر",
+                "نوفمبر",
+                "ديسمبر",
+            ];
+
+
+
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <table width="100%">
+        <tr>
+            <td>
+                <table border="0" width="100%">
+                    <tr>
+                        <td>
+                            <h1 id="taqwim">التّقويم السّنوي لسنة</h1>                            
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+
+        </tr>
+        
+    </table>
+
+    <table width="100%" height="100%">
+        <tr>
+            <td width="60%">
+                <table id="Tmain">
+                    <tr>
+                        <td>السّنة</td>
+                        <td>
+                            <input type="number" id="iY" min="1" max="3000" onchange="Cal()" />
+                        </td>
+
+                        <td>
+                            <select id="mycountry" onchange="Cal()">
+                                <!--<option value="0" selected>Select a country</option>-->
+                                <option value="Tunisia" selected>Tunisia</option>
+                                <option value="Algeria">Algeria</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="Morocco">Morocco</option>
+                                <option value="France">France</option>
+                                <option value="Senegal">Senegal</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <table id="tcal">
+                    <tr>
+                        <td>
+                            <table id="t1">
+                                <tr>
+                                    <th colspan="7">Jan</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t2">
+                                <tr>
+                                    <th colspan="7">Feb</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t3">
+                                <tr>
+                                    <th colspan="7">Mar</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t4">
+                                <tr>
+                                    <th colspan="7">Apr</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table id="t5">
+                                <tr>
+                                    <th colspan="7">May</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t6">
+                                <tr>
+                                    <th colspan="7">Jun</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t7">
+                                <tr>
+                                    <th colspan="7">Jul</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t8">
+                                <tr>
+                                    <th colspan="7">Aug</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table id="t9">
+                                <tr>
+                                    <th colspan="7">Sep</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t10">
+                                <tr>
+                                    <th colspan="7">Oct</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t11">
+                                <tr>
+                                    <th colspan="7">Nov</th>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="t12">
+                                <tr>
+                                    <th colspan="7">Dec</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td id="ar" width="10%" valign="top" align="right">
+                <h3>الأعياد الوطنيّة</h3>
+                <div id="holidays">
+                </div>
+                <h3>الأعياد الدّينيّة</h3>
+                <div id="hijriholidays">
+                </div>
+            </td>
+
+        </tr>
+        
+    </table>
+</body>
+<script>
+    hijriholiday = [];
+    const days = ["الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"];
+    const nbdays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const months = [
+        "جانفي",
+        "فيفري",
+        "مارس",
+        "أبريل",
+        "ماي",
+        "جوان",
+        "جويلية",
+        "أوت",
+        "سبتمبر",
+        "أكتوبر",
+        "نوفمبر",
+        "ديسمبر",
+    ];
+    const elyoum = new Date();
+
+    let cday = elyoum.getDate();
+    let cmonth = elyoum.getMonth() + 1;
+    let cyear = elyoum.getFullYear();
+    const holidays = [
+        {
+            country: "Tunisia",
+            label: "رأس السنة الميلادية",
+            m: "1",
+            d: "1"
+        },
+        {
+            country: "Tunisia",
+            label: "عيد الاستقلال",
+            m: "3",
+            d: "20"
+        }, {
+            country: "Tunisia",
+            label: "عيد الشهداء",
+            m: "4",
+            d: "9"
+        }, {
+            country: "Tunisia",
+            label: "عيد العمال",
+            m: "5",
+            d: "1"
+        }, {
+            country: "Tunisia",
+            label: "عيد الجمهورية",
+            m: "7",
+            d: "25"
+        }, {
+            country: "Tunisia",
+            label: "عيد الثورة",
+            m: "12",
+            d: "17"
+        }, {
+            country: "Algeria",
+            label: "New Year day",
+            m: "1",
+            d: "1"
+        }, {
+            country: "Algeria",
+            label: "Amazigh New Year(Yennayer)",
+            m: "1",
+            d: "12"
+        }, {
+            country: "Algeria",
+            label: "Labour Day",
+            m: "5",
+            d: "1"
+        }, {
+            country: "Algeria",
+            label: "Independence Day",
+            m: "7",
+            d: "5"
+        }, {
+            country: "Algeria",
+            label: "Revolution Day",
+            m: "11",
+            d: "1"
+        }];
+
+
+
+    function getmyDay(d) {
+        let date = new Date(d);
+        const date0 = new Date("10/15/1582");
+        const date1 = new Date("10/4/1582");
+        let ret = 0;
+        if (date instanceof Date && !isNaN(date)) {
+            if (date < date0 && date > date1) {
+                ret = undefined;
+            } else if ((date) => date0) {
+                ret = date.getDay();
+            } else if (date <= date1) {
+                ret = (date.getDay() + 3) % 7;
+            }
+        } else {
+            ret = undefined;
+        }
+        return ret;
+    }
+
+    function cal(m, y) {
+        let gregorianDate = '';
+        let title = '';
+        if (y % 4 == 0 && !(y % 100 == 0 && y % 400 != 0)) {
+            nbdays[1] = 29;
+        }
+        let dat1 = new Date(m + "/" + "28" + "/" + y);
+        let d1 = dat1.getDay();
+        t = document.getElementById("t" + m);
+        tr = document.createElement("tr");
+        for (let i = 0; i <= 6; i++) {
+            th = document.createElement("th");
+            th.innerHTML = days[i];
+            tr.appendChild(th);
+        }
+        t.appendChild(tr);
+        for (let j = 0; j <= 5; j++) {
+            tr = document.createElement("tr");
+            for (let i = 0; i <= 6; i++) {
+                let v = "";
+                if (i >= d1 || j > 0) {
+                    v = i - d1 + 1 + j * 7;
+                }
+                var ramadan = false;
+                if (v <= nbdays[m - 1] && !(y == 1582)) {
+                    td = document.createElement("td");
+                    if (v) {
+                        gregorianDate = v + '/' + m + '/' + y;
+                        var dateHijri = HijriJS.toHijri(gregorianDate, "/").toString();
+                        //console.log('gregorian/hijri::', gregorianDate + '**' + dateHijri + '___' + dateHijri.slice(3, 5));
+                        //console.log('::', dateHijri + '**' + dateHijri.slice(0, 5))
+
+
+                        if (dateHijri.slice(3, 5) == '09') {
+                            ramadan = true;
+                        } else {
+                            ramadan = false;
+                        }
+                    } //new Date(y, m, v);
+                    else {
+                        var dateHijri = '';
+                    }
+
+
+
+
+
+
+
+                    if (y == cyear && m == cmonth && v == cday) {
+                        td.style.backgroundColor = "violet";
+                        title = 'Today';
+                        td.style.color = "white";
+                    }
+                    if (i == 6 || i == 5) {
+                        td.style.backgroundColor = "gold";
+                        title = 'WekEnd';
+                    }
+
+                    const found = holidays.find(
+                        (element) => element.country == document.getElementById('mycountry').value && element.m == m && element.d == v
+                    );
+
+
+
+
+                    if (found) {
+                        td.style.backgroundColor = "red";
+                        title = found.label; //'Holiday';
+                    }
+                    if (ramadan) {
+                        td.style.backgroundColor = "#32CD32";
+                        title = 'Ramadan'
+                    }
+                    if (dateHijri.slice(0, 5) == '01/01') {
+
+                        title = "رأس السّنة الهجريّة";
+                        hijriholiday.push({ "title": "رأس السّنة الهجريّة", "date": gregorianDate });
+                    }
+                    if (dateHijri.slice(0, 5) == '01/10') {
+
+                        title = 'عيد الفطر';
+                        hijriholiday.push({ "title": "عيد الفطر", "date": gregorianDate });
+                    }
+                    if (dateHijri.slice(0, 5) == '10/12') {
+                        title = "عيد الإضحى";
+                        hijriholiday.push({ "title": "عيد الإضحى", "date": gregorianDate });
+                    }
+                    if (dateHijri.slice(0, 5) == '12/03') {
+                        title = "المولد النّبوي";
+                        hijriholiday.push({ "title": "المولد النّبوي", "date": gregorianDate });
+                    }
+
+                    if (dateHijri.slice(0, 5) == '10/01' && document.getElementById('mycountry').value == 'Algeria') {
+                        title = "عاشوراء";
+                        hijriholiday.push({ "title": "عاشوراء", "date": gregorianDate });
+                    }
+
+                    if (dateHijri.slice(0, 5) == '01/10' || dateHijri.slice(0, 5) == '01/01' || dateHijri.slice(0, 5) == '10/12' || dateHijri.slice(0, 5) == '12/03') {
+                        td.style.backgroundColor = "pink";
+                    }
+
+
+                    td.innerHTML = v;
+
+                    tr.appendChild(td);
+                }
+            }
+            t.appendChild(tr);
+        }
+        //console.log('hijri holidays::', hijriholiday);
+    }
+    const clear = () => {
+        for (let i = 1; i <= 12; i++) {
+            document.getElementById("t" + i).innerHTML =
+                '<tr><th colspan="7">' + months[i - 1] + "</th></tr>";
+        }
+        hijriholiday = [];
+    };
+    const Cal = () => {
+        if (document.getElementById('mycountry').value && document.getElementById('mycountry').value != '0') {
+            if (document.getElementById("iY").value == '') {
+                document.getElementById("iY").value = new Date().getFullYear();
+            }
+            y = document.getElementById("iY").value;
+            clear();
+            for (let m = 1; m <= 12; m++) {
+                cal(m, y);
+            }
+            showHolidays(document.getElementById('mycountry').value, document.getElementById("iY").value, 'holidays');
+            showHijriHolidays('hijriholidays');
+            document.getElementById("taqwim").innerHTML = "التّقويم السّنوي لسنة " + y;
+        }
+    };
+
+    function convertDateMDYtoDMY(dateStr) {
+        // dateStr attendu au format "m/d/yyyy"
+        console.log('dateStr::', dateStr);
+        if (typeof dateStr !== 'string') {
+            dateStr = dateStr.textContent;
+        }
+        if (!dateStr) {
+            return "";
+        }
+
+        const parts = dateStr.split('/'); // ["m", "d", "yyyy"]
+        console.log('parts::', parts);
+
+        if (parts) {
+            if (parts.length !== 3) {
+                throw new Error("Format de date invalide, attendu m/d/yyyy");
+            }
+            const [month, day, year] = parts;
+            console.log('output::', `${day}/${month}/${year}`);
+            return `${day}/${month}/${year}`; // retourne "d/m/yyyy"
+        }
+        return "";
+    }
+
+    // Fonction pour afficher holidays grégoriens
+    function showHolidays(country, year, idholidays) {
+        const container = document.getElementById(idholidays);
+        container.innerHTML = "";
+
+        const table = document.createElement("table");
+        table.style.borderCollapse = "collapse";
+
+        holidays
+            .filter(h => h.country === country)
+            .forEach(h => {
+                const tr = document.createElement("tr");
+
+                const tdLabel = document.createElement("td");
+                tdLabel.textContent = h.label;
+                tdLabel.style.border = "1px solid #ccc";
+                tdLabel.style.padding = "5px";
+
+                const tdDate = document.createElement("td");
+                tdDate.textContent = convertDateMDYtoDMY(`${h.m}/${h.d}/${year}`);
+                tdDate.style.border = "1px solid #ccc";
+                tdDate.style.padding = "5px";
+
+
+                tr.appendChild(tdDate);
+                tr.appendChild(tdLabel);
+                table.appendChild(tr);
+            });
+
+        container.appendChild(table);
+    }
+
+    function showHijriHolidays(idholidays) {
+        const container = document.getElementById(idholidays);
+        container.innerHTML = "";
+
+        const table = document.createElement("table");
+        table.style.borderCollapse = "collapse";
+
+        hijriholiday.forEach(h => {
+            const tr = document.createElement("tr");
+
+            const tdDate = document.createElement("td");
+            tdDate.textContent = h.date;
+            tdDate.style.border = "1px solid #ccc";
+            tdDate.style.padding = "5px";
+
+            const tdLabel = document.createElement("td");
+            tdLabel.textContent = h.title;
+            tdLabel.style.border = "1px solid #ccc";
+            tdLabel.style.padding = "5px";
+
+
+
+
+            tr.appendChild((tdDate));
+            tr.appendChild(tdLabel);
+            table.appendChild(tr);
+        });
+
+        container.appendChild(table);
+    }
+
+
+
+
+
+    Cal();
+
+</script>
+
+</html>
+
+</html>
+
+</html>
